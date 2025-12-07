@@ -79,10 +79,10 @@ Custom hooks in each feature directory encapsulate data fetching logic:
 - `useDeleteTask()`: Delete a task
 - `useProjects()`: Fetch all projects
 
-## Setup Instructions
+## Getting Started
 
 ### Prerequisites
-- Node.js 18+ 
+- Node.js 18 or higher
 - npm or yarn
 - Backend API running on `http://127.0.0.1:8000`
 
@@ -112,6 +112,23 @@ npm run dev
 5. Open [http://localhost:3000](http://localhost:3000) in your browser.
 
 The application will automatically redirect to `/tasks` page.
+
+### Running Tests
+
+To run unit tests:
+```bash
+npm test
+```
+
+To run tests in watch mode:
+```bash
+npm test -- --watch
+```
+
+To run tests with coverage:
+```bash
+npm test -- --coverage
+```
 
 ## API Configuration
 
@@ -207,6 +224,12 @@ npm start
 
 ```bash
 npm run lint
+```
+
+### Testing
+
+```bash
+npm test
 ```
 
 ## Responsive Design

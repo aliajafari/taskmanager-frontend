@@ -1,4 +1,4 @@
-import { SelectHTMLAttributes, ReactNode } from 'react';
+import { SelectHTMLAttributes, ReactNode, useId } from 'react';
 
 interface SelectProps extends SelectHTMLAttributes<HTMLSelectElement> {
   label?: string;
@@ -11,16 +11,19 @@ export function Select({
   error,
   className = '',
   children,
+  id,
   ...props
 }: SelectProps) {
+  const selectId = id || useId();
   return (
     <div className="w-full">
       {label && (
-        <label className="block text-sm font-medium text-gray-700 mb-1">
+        <label htmlFor={selectId} className="block text-sm font-medium text-gray-700 mb-1">
           {label}
         </label>
       )}
       <select
+        id={selectId}
         className={`w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-gray-900 font-medium ${
           error ? 'border-red-500' : 'border-gray-300'
         } ${className}`}

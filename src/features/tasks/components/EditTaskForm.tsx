@@ -1,7 +1,7 @@
 'use client';
 
 import { useForm } from 'react-hook-form';
-import { useEffect } from 'react';
+import { useEffect, useId } from 'react';
 import { Input } from '@/components/ui/input';
 import { Select } from '@/components/ui/select';
 import { Button } from '@/components/ui/button';
@@ -25,6 +25,7 @@ export function EditTaskForm({
   onCancel,
   isLoading,
 }: EditTaskFormProps) {
+  const descriptionId = useId();
   const formatDueDate = (dueDate?: string): string | undefined => {
     if (!dueDate) return undefined;
     if (dueDate.includes(' ')) {
@@ -105,10 +106,11 @@ export function EditTaskForm({
       />
 
       <div>
-        <label className="block text-sm font-medium text-gray-700 mb-1">
+        <label htmlFor={descriptionId} className="block text-sm font-medium text-gray-700 mb-1">
           Description
         </label>
         <textarea
+          id={descriptionId}
           {...register('description')}
           className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-gray-900 font-medium"
           rows={3}
